@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React, { useCallback, useEffect } from 'react'
-import Header from './components/header'
+import Hero from './components/hero'
 import LikeIcon from './components/icons/like'
 import { UnsplashResponse } from './features/search/definition'
 import GridItem from './features/search/grid-item'
@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="flex flex-col h-screen w-screen justify-center items-center overflow-y-hidden">
       <div className="w-fit h-fit flex-col space-y-4">
-        <Header flyToTop={flyToTop} onAnimating={(s) => setAnimating(s)} />
+        <Hero flyToTop={flyToTop} onAnimating={(s) => setAnimating(s)} />
         <SearchBox
           onSearch={(p, q) => {
             setUrl(
