@@ -36,6 +36,7 @@ function Hero(props: Props) {
 
   useEffect(() => {
     props.onAnimating && props.onAnimating(animating)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animating])
 
   return (

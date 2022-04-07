@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import React, { useCallback, useEffect } from 'react'
 import Hero from './components/hero'
-import LikeIcon from './components/icons/like'
 import { UnsplashResponse } from './features/search/definition'
 import GridItem from './features/search/grid-item'
 import SearchBox from './features/search/searchbox'
@@ -12,7 +11,6 @@ function App() {
   const [animating, setAnimating] = React.useState(false)
   const [searching, setSearching] = React.useState(false)
   const [url, setUrl] = React.useState('')
-  const [currentTopic, setCurrentTopic] = React.useState('')
   const [currentPage, setCurrentPage] = React.useState(1)
   const [result, setResult] = React.useState<UnsplashResponse | undefined>()
   // this state used for animate the header to top left

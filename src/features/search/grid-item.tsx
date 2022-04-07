@@ -1,6 +1,5 @@
 import clsx from 'clsx'
-import React, { FC } from 'react'
-import LikeIcon from '../../components/icons/like'
+import { FC } from 'react'
 import LikeButton from '../../components/like-button'
 import { Result } from './definition'
 

@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import {
   ChangeEvent,
   FC,
-  MouseEvent,
   useCallback,
   useEffect,
   useRef,
