@@ -10,7 +10,7 @@ function App() {
   React.useLayoutEffect(() => {}, [])
   const [animating, setAnimating] = React.useState(false)
   const [searching, setSearching] = React.useState(false)
-  const [url, setUrl] = React.useState('')
+  const [query, setQuery] = React.useState('')
   const [currentPage, setCurrentPage] = React.useState(1)
   const [result, setResult] = React.useState<UnsplashResponse | undefined>()
   // this state used for animate the header to top left
@@ -33,9 +33,10 @@ function App() {
 
   // handle search (call unsplash api)
   useEffect(() => {
-    if (!url) return
+    if (!query) return
     setFlyToTop(true)
     setSearching(true)
+    const url = `https://api.unsplash.com/search/photos?page=${currentPage}&query=${query}`
     Fetch<UnsplashResponse>(url, {
       authorization: `Client-ID ${process.env.REACT_APP_UNSPLASH_CLIENT_ID}`,
     }).then((result) => {
@@ -44,7 +45,7 @@ function App() {
       }
       setSearching(false)
     })
-  }, [currentPage, url])
+  }, [currentPage, query])
 
   return (
     <div className="flex flex-col h-screen w-screen justify-center items-center overflow-y-hidden">
@@ -52,9 +53,7 @@ function App() {
         <Hero flyToTop={flyToTop} onAnimating={(s) => setAnimating(s)} />
         <SearchBox
           onSearch={(p, q) => {
-            setUrl(
-              `https://api.unsplash.com/search/photos?page=${p}&query=${q}`
-            )
+            setQuery(q)
             setCurrentPage(p)
           }}
           animate={animating}
